@@ -92,40 +92,40 @@
 
       <!-- Signup form starts here -->
          <div id="form-signup">
-            <form class="form2" action="/login" method="GET">
+            <form class="form2" action="admin/register" method="POST">
               <div class="form-group">
                 <label for="firstname">Firstname:</label>
-                <input type="text" class="form-control" id="fname" placeholder="Firstname">
+                <input type="text" class="form-control" name="fname" placeholder="Firstname">
               </div>
               <div class="form-group">
                 <label for="lastname">Lastname:</label>
-                <input type="text" class="form-control" id="lname" placeholder="Lastname">
+                <input type="text" class="form-control" name="lname" placeholder="Lastname">
               </div>
               <div class="form-group">
                 <label for="mobno">Mobile No:</label>
-                <input type="text" class="form-control" id="mobno" placeholder="Mobile No">
+                <input type="text" class="form-control" name="mobno" placeholder="Mobile No">
               </div>
               <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" placeholder="Email id">
+                <input type="email" class="form-control" name="email" placeholder="Email id">
               </div>
                 <div class="form-group">
                   <label for="username">Username:</label>
-                  <input type="text" class="form-control" id="username" placeholder="Username">
+                  <input type="text" class="form-control" name="username" placeholder="Username">
                 </div>
                 <div class="form-group">
                   <label for="pwd">Password:</label>
-                  <input type="password" class="form-control" id="password" placeholder="Password">
+                  <input type="password" class="form-control" name="password" placeholder="Password">
                 </div>
                 <div class="form-group">
                   <label for="repwd">Re-enter Password:</label>
-                  <input type="text" class="form-control" id="repassword" placeholder="Re-enter password">
+                  <input type="text" class="form-control" name="repassword" placeholder="Re-enter password">
                 </div>
                 <div class="checkbox">
                   <label><input type="checkbox"> I agree the terms and conditions</label>
                 </div>
-                <button type="submit" class="login-btn" onclick="return val_password();">Submit</button>
-                
+                <button type="submit" class="login-btn" >Submit</button>
+                <!-- onclick="return val_password();" -->
               </form> 
          </div>
           <!-- <end of signup form        -->
@@ -185,6 +185,6 @@
 	<!-- script references -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script src="/public/js/bootstrap.min.js"></script>
-    <script src="/public/js/validate_signup.js"></script>
+    <!-- <script src="/public/js/validate_signup.js"></script> -->
 	</body>
 </html>

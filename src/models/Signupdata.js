@@ -7,19 +7,21 @@ mongoose.connect('mongodb+srv://user_sneha:user123@csfsd.kuni0.mongodb.net/libra
 //step1: access schema from mongoose package
 const Schema=mongoose.Schema;
 
-//create a structure for a single document/book
-const BookSchema=new Schema(
+//create a structure for signup collection
+const SignupSchema=new Schema(
 {
     //define schema
-    title: String,
-    author: String,
-    genre: String,
-    image: String,
-    desc: String
+    fname: String,
+    lname: String,
+    mobno: Number,
+    email: String,
+    username: String,
+    password: String,
+    repassword:String
 });
 
 
 //model creation - mongoose.model(collection-name,schema)
-var Bookdata = mongoose.model('bookdata',BookSchema);
+var Signupdata = mongoose.model('signupdata',SignupSchema);
 //Export module 
-module.exports = Bookdata;
+module.exports = Signupdata;

@@ -29,7 +29,7 @@ footer {
 
 #masthead {
   min-height:199px;
-  background-color:#0c972f;
+  /* background-color:#0c972f; */
   background-image: url("/images/download.jpg");
   
   color:#aaaacc;
@@ -195,6 +195,36 @@ a,a:hover {
    margin-left: 160px;
 
 }
+.backpage{
+  float:right;
+  color:cornsilk;
+  font-size: medium;
+  background-color:black;
+
+}
+
+.deletebtn{
+  float:right;
+  background-color:red;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 50px;
+}
+.updatebtn{
+  float:right;
+  background-color: green;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 50px;
+}
 .form1{
   /* width: 50%; */
   margin-top: 10px;
@@ -266,4 +296,19 @@ a,a:hover {
      background-size: cover;
      background-position: center center;
   
+}
+.description{
+  margin-top: 10px;
+  margin-left:50px;
+  margin-right:50px;
+
+  border-radius: 10px;
+  padding:20px;
+  padding-left: 20px;
+  padding-top: 20px;
+  /* background : gray; */
+  color:black;
+
+  /* width: 500px; */
+  /* height: 460px; */
 }

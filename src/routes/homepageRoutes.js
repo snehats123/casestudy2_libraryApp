@@ -6,7 +6,7 @@ function router(nav)
         res.render("homepage",
         {
             nav,
-            button:'Donate',title:'LibraryApp',heading:'LIBRARY'
+            title:'LibraryApp'
         });
     });
     homeRouter.get('/',function(req,res){
@@ -14,6 +14,9 @@ function router(nav)
     });
     homeRouter.get('/addBooks',function(req,res){
         res.redirect("addBook");
+    });
+    homeRouter.get('addauthor',(req,res)=>{
+        res.redirect("addAuthor");
     });
     return homeRouter;
 

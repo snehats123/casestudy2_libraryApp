@@ -92,25 +92,29 @@
           <div class="row">    
             <br>
             <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><img alt="" src="/images/<%=book.img%>" style="width:100px;height:100px" class="img-circle"></a>
+              <a class="story-title" href="#"><img alt="" src="/images/<%=book.image%>" style="width:100px;height:100px" class="img-circle"></a>
             </div>
             <div class="col-md-10 col-sm-9">
               <h3><%=book.title%></h3>
               <div class="row">
                 <div class="col-xs-9">
                   <h4><span class="label label-default"><%=book.author%></span></h4><h4>
-                  <small style="font-family:courier,'new courier';" class="text-muted"><%=book.genre%>  • 
-                  
-                  </h4></div>
+                  <small style="font-family:courier,'new courier';" class="text-muted"><%=book.genre%>  
+                  </h4>
+                </div>
                 <div class="col-xs-3"></div>
               </div>
-              <br><br>
+              <!-- <br> -->
             </div>
           </div>
-        
-          <hr>
-          
+         <hr>
+          <div>
+            <h3>SUMMARY</h3>
+            <h3 class="description"><%=book.desc%></h3>
+          </div>
+          <a href="../views/books.ejs" class="backpage">Back to Books</a>
         </div>
+        
       </div>
                                                                                        
 	                                                

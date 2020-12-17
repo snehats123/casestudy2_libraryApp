@@ -1,78 +1,82 @@
 const express=require('express');
 const booksRouter=express.Router();
+const Bookdata=require('../models/Bookdata');
+
 function router(nav)
 {
-    var books=[
-        {
-            title:'Empire',
-            author:'Devi Yasodharan',
-            genre:'Classics',
-            img:"book1.jpg"
-        },
-        {
-            title:'Malgudi days',
-            author:'R.K Narayanan',
-            genre:'Classics',
-            img:"book2.jpg"
-        },
-        {
-            title:'Playing it my way',
-            author:'Sachin Tendulkar',
-            genre:'Autobiography',
-            img:"book3.jpg"
-        },
-        {
-            title:'Raavan : Enemy of Aryavarta',
-            author:'Amish Tripathi',
-            genre:'Mythological Fiction',
-            img:"book4.jpg"
-        },
-        {
-            title:'The God of Small Things',
-            author:'Arundhathi Roy',
-            genre:'Classics',
-            img:"book5.jpg"
-        },
-        {
-            title:'The Guide',
-            author:'R.K Narayanan',
-            genre:'Classics',
-            img:"book6.jpg"
-        },
-        {
-            title:'The Room on the Roof',
-            author:'Ruskin Bond',
-            genre:'Classics',
-            img:"book7.jpg"
-        },
-        {
-            title:'The Story of My Experiments with Truth',
-            author:'Mahathma Gandhi',
-            genre:'Autobiography',
-            img:"book8.jpg"
-        },
-        {
-            title:'Wings of Fire',
-            author:'APJ Abdul Kalam',
-            genre:'Autobiography',
-            img:"book9.jpg"
-        }
-    ]
+    // view all books in bookdata collection
     booksRouter.get('/',function(req,res){
-        res.render("books",
-        {
-            nav,button:'Donate',title:'LibraryApp',heading:'LIBRARY',books
-    
-        });
+        Bookdata.find()
+            .then((books)=>
+            {
+                
+                res.render("books",
+                {
+                    nav,
+                    title:'LibraryApp',
+                    books
+                });
+            });        
     });
+    //view a single book
     booksRouter.get('/:id',function(req,res){
         const id=req.params.id;
-        res.render("book",{
-            nav,button:'Donate',title:'LibraryApp',heading:'LIBRARY',
-           book:books[id]
+       
+        Bookdata.findOne({_id:id})
+        .then((book)=>{
+            res.render("book",{
+                nav,title:'LibraryApp',
+               book
+            });
+        })
+    });
+    //delete a single book
+    booksRouter.get('/:id/delete',(req,res)=>{
+        const id=req.params.id;
+            
+        Bookdata.findByIdAndRemove({_id:id},(err,docs)=>{
+            if(err){
+                console.log(err);
+            }
+            else{
+                res.redirect('/books');
+            }
+        });
+    });
+    //prefill editbook form
+    booksRouter.get('/:id/update',(req, res) => {    
+        var id = req.params.id;
+     
+        Bookdata.find({_id:id}) .then((book)=>{
+            res.render('editbook',{
+            nav,
+            title:"Library",
+               book
+            });  
+        });
+     
+    });
+    //update db
+    booksRouter.get('/proceed',(req, res) => {
+      var id=req.params.id;
+      console.log("in /proceed");
+        var newitem={
+            name: req.query.name,
+            role: req.query.role,
+            awards: req.query.awards,
+            image: req.query.image,
+            desc: req.query.desc
+        }
+        console.log(newitem);
+        //var data=Bookdata(item);
+        Bookdata.findByIdAndUpdate(id,newitem).then(()=>{
+            res.redirect("/books");
         });
         
+      
     });
+   
+   
     return booksRouter;
 }
 

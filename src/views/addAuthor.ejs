@@ -5,7 +5,8 @@
 		<meta charset="utf-8">
 		<title><%=title%></title>
 		<meta name="generator" content="Bootply" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <base href="/">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 		<!--[if lt IE 9]>
@@ -84,26 +85,26 @@
       
       <div class="panel">
         <div id="form-login">
-            <form class="form-addbook" action="/admin1/add" method="POST">
+            <form class="form-addbook" action="/admin/add_data" method="POST">
                 <div class="form-group">
                   <label for="title">Name</label>
-                  <input type="text" class="form-control" id="name">
+                  <input type="text" class="form-control" name="name">
                 </div>
                 <div class="form-group">
                   <label for="author">Role</label>
-                  <input type="text" class="form-control" id="role">
+                  <input type="text" class="form-control" name="role">
                 </div>
                 <div class="form-group">
                     <label for="genre">Awards</label>
-                    <input type="text" class="form-control" id="awards">
+                    <input type="text" class="form-control" name="awards">
                   </div> 
                   <div class="form-group">
                     <label for="image">Author Image</label>
-                    <input type="file" class="form-control" id="authorimg">
+                    <input type="file" class="form-control" name="image">
                   </div>
                   <div class="form-group">
                     <label for="description">Description</label>
-                    <textarea class="form-control" id="desc" rows="10" cols="30">
+                    <textarea class="form-control" name="desc" rows="10" cols="30">
 
                     </textarea>
                   </div>
@@ -111,7 +112,7 @@
                 <!-- <div class="checkbox">
                   <label><input type="checkbox"> Remember me</label>
                 </div> -->
-                <button type="submit" class="login-btn">ADD</button>
+                <button type="submit" class="login-btn">ADD AUHTOR</button>
               </form> 
          </div>
       </div>
